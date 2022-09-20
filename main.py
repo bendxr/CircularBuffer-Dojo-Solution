@@ -1,0 +1,48 @@
+from circular_buffer import CircularBuffer
+from exceptions import BufferEmptyException
+
+cirbuf = CircularBuffer(3)
+try: 
+  cirbuf.read()
+except BufferEmptyException as ex:
+  print(ex.message)
+
+
+print("free = {} / {}".format(cirbuf.free(), cirbuf.capacity()))
+cirbuf.write('toto')
+print("free = {} / {}".format(cirbuf.free(), cirbuf.capacity()))
+cirbuf.write(45)
+print("free = {} / {}".format(cirbuf.free(), cirbuf.capacity()))
+print("Read {} from buffer".format(cirbuf.read()))
+print("free = {} / {}".format(cirbuf.free(), cirbuf.capacity()))
+print("Read {} from buffer".format(cirbuf.read()))
+print("free = {} / {}".format(cirbuf.free(), cirbuf.capacity()))
+cirbuf.clear()
+cirbuf.write(1)
+cirbuf.write(2)
+cirbuf.write(3)
+print("r1 = {} , r2 = {} , r3 = {}".format(cirbuf.read(), cirbuf.read(), cirbuf.read()))
+cirbuf.clear()
+cirbuf.write(1)
+cirbuf.write('hello')
+cirbuf.write(3)
+cirbuf.print()
+cirbuf.read()
+cirbuf.read()
+cirbuf.print()
+cirbuf.overwrite(4)
+cirbuf.print()
+cirbuf.overwrite(5)
+cirbuf.print()
+cirbuf.overwrite(6)
+cirbuf.print()
+cirbuf.overwrite(7)
+cirbuf.print()
+cirbuf.overwrite(8)
+cirbuf.print()
+cirbuf.overwrite(9)
+cirbuf.print()
+cirbuf.overwrite(10)
+cirbuf.print()
+print("r1 = {} , r2 = {} , r3 = {}".format(cirbuf.read(), cirbuf.read(), cirbuf.read())) 
+
